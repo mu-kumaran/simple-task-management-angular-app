@@ -1,0 +1,23 @@
+@if (taskDetail) {
+    <h2>Task Details!!!</h2>
+    <p><strong>Id: </strong>{{taskDetail.id}}</p>
+    <p><strong>Title: </strong>{{taskDetail.title}}</p>
+    <p><strong>Description: </strong>{{taskDetail.description}}</p>
+    <!-- <p><strong>Status: </strong>{{taskDetail.status}}</p> -->
+    <p><strong>Priority: </strong>{{taskDetail.priority}}</p>
+
+    <p><strong>Status:</strong> 
+        @if(taskDetail.status === 'done'){
+            <span style="color: green;">✅ Completed</span>
+        }
+        @else if (taskDetail.status === 'in-progress') {
+            <span style="color: orange;">⏳ In Progress</span>
+        }
+        @else {
+            <span style="color: red;">🕗 Pending</span>
+         }
+    </p>
+    
+}
+
+

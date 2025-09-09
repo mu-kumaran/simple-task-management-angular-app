@@ -1,0 +1,13 @@
+<h2>Task list!!!</h2>
+@for (item of taskLists; track item.id) {
+    <ul class="taskLists">
+        <li>
+            <button (click)="taskSenderBox(item)">
+                <b>{{item.title}}</b> - <em>{{item.status}}</em>
+            </button>
+        </li>
+    </ul>
+    
+}
+
+<p>Total no of tasks : {{totalTasks}}</p>
