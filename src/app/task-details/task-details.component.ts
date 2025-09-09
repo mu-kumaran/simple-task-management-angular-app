@@ -9,7 +9,4 @@ import { Task } from '../models/task.model';
 export class TaskDetailsComponent {
   @Input() taskDetail! : Task | null; 
 
-  // get pendingTasks(): Task{
-  //   return this.taskDetail.filter(t => t.status === 'pending')
-  // }
 }
