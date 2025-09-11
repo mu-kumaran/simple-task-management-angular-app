@@ -3,6 +3,14 @@
 <button>Add Task</button><br /><br />
 <hr />
 
+<!-- Search box -->
+ <h4>Search bar!!!</h4>
+<input input="text" placeholder="Search Tasks..." [(ngModel)] = "searchTerm">
+<button>Search</button>
+<p>{{searchTerm}}</p>
+
+<hr />
+
 <app-task-list (sendTask)="taskInbox($event)"></app-task-list>
 
 <h3>Pending Tasks: </h3>
@@ -12,6 +20,16 @@
     </ul>
 }
 
+@if(searchTerm){
+    <h2>Filtered Tasks:</h2>
+    @for (item of filteredTasks; track item.id) {
+        <ul>
+            <li (click)="taskInbox(item)" style="cursor: pointer;">
+                {{item.title}} - {{item.status}}
+            </li>
+        </ul>
+    }
+}
 
 <app-task-details [taskDetail]="selectedTask"></app-task-details>
 

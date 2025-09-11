@@ -16,11 +16,19 @@ export class AppComponent {
   title = 'simple-task-management-app';
   allTasks : Task[] = TASKS;
   selectedTask: Task | null=null;
+  searchTerm: string | null=null;
   taskInbox(task:any){
     this.selectedTask = task;
   }
 
   get pendingTasks():Task[]{
     return this.allTasks.filter(t => t.status === 'pending')
+  }
+
+  get filteredTasks():Task[]{
+    return this.allTasks.filter(t => 
+      t.title.toLowerCase() === this.searchTerm?.toLowerCase() || 
+      t.description.toLowerCase() === this.searchTerm?.toLowerCase()
+    )
   }
 }
